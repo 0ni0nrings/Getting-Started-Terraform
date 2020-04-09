@@ -7,7 +7,7 @@ variable "aws_secret_key" {}
 variable "private_key_path" {}
 variable "key_name" {}
 variable "region" {
-  default = "us-east-1"
+  default = "ap-southeast-2"
 }
 variable "network_address_space" {
   default = "10.1.0.0/16"
@@ -42,7 +42,7 @@ locals {
     Environment = var.environment_tag
   }
 
-  s3_bucket_name = "${var.bucket_name_prefix}-${var.environment_tag}-${random_integer.rand.result}"
+  s3_bucket_name = "${var.bucket_name_prefix}-${var.environment_tag}-${random_integer.rand.result}" # interpolation
 }
 
 ##################################################################################
